@@ -30,3 +30,79 @@
 - **Improved Communication:** Centralized platform for announcements.
 - **Enhanced Engagement:** Community members stay informed and participate more.
 - **Accessibility:** Notices reach more people instantly.
+
+
+
+## Installation Steps
+
+1. **Clone the Repository**
+
+   Open your terminal and run:
+
+   ```bash
+   git clone https://github.com/AmanDevelops/NeighborLink.git
+   cd NeighborLink
+   ```
+
+
+
+2. **Set Up Environment Variables**
+
+   Create a `.env` file in the root directory and define necessary environment variables. Refer to the `.env.example` file for guidance.
+
+3. **Build and Run with Docker Compose**
+
+   Execute the following command to build and start the application:
+
+   ```bash
+   docker-compose up
+   ```
+
+4. **Create a Virtual Environment**
+
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # On Windows, use venv\Scripts\activate
+   ```
+
+
+
+5. **Install Dependencies**
+
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+
+
+6. **Apply Migrations**
+
+   ```bash
+   python manage.py migrate
+   ```
+
+
+
+7. **Run the Development Server**
+
+   ```bash
+   python manage.py runserver
+   ```
+
+
+
+Access the application at `http://127.0.0.1:8000/`.
+
+## Contribution
+
+Contributions are welcome! Please fork the repository and submit a pull request for any enhancements or bug fixes.
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](https://github.com/AmanDevelops/NeighborLink/blob/main/LICENSE) file for details.
+
+---
+
+For more information, visit the [NeighborLink GitHub Repository](https://github.com/AmanDevelops/NeighborLink).
+
+---
