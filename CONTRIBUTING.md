@@ -17,7 +17,7 @@ Welcome to the open-source NeighborLink project! Contributions are always apprec
 4. **_Create a New Branch:_** Create a new branch from the `main` branch to work on your changes.
 
     ```bash
-    git switch -c <new-branch-name>
+    git checkout -b <new-branch-name>
     ```
 
 5. **_Make Changes:_**  Now it’s time to edit and enhance the project in your branch
