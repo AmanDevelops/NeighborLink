@@ -55,7 +55,7 @@
    Execute the following command to build and start the application:
 
    ```bash
-   docker-compose up
+   docker compose up -d
    ```
 
 4. **Create a Virtual Environment**
