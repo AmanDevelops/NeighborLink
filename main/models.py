@@ -30,9 +30,9 @@ class MediaAttachment(models.Model):
     notice = models.ForeignKey(Notice, on_delete=models.CASCADE)
     file_url = models.URLField()
     FILE_TYPE_CHOICES = [
-        ('image', 'Image'),
-        ('video', 'Video'),
-        ('document', 'Document'),
+        ("image", "Image"),
+        ("video", "Video"),
+        ("document", "Document"),
     ]
     file_type = models.CharField(max_length=50, choices=FILE_TYPE_CHOICES)
     uploaded_at = models.DateTimeField(default=timezone.now)
