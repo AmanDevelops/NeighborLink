@@ -3,8 +3,15 @@ from django.db import models
 from django.utils import timezone
 
 
+class UserProfile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    social_login = models.BooleanField(default=False)
+    google_id = models.CharField(max_length=50, null=True, blank=True)
+    profile_url = models.URLField(null=True, blank=True)
+
+
 class Category(models.Model):
-    name = models.CharField(max_length=50, unique=True, null=False)
+    name = models.CharField(max_length=50, unique=True)
     description = models.TextField()
 
 
@@ -20,14 +27,19 @@ class Notice(models.Model):
 
 
 class MediaAttachment(models.Model):
-    notice = models.ForeignKey("Notice", on_delete=models.CASCADE)
+    notice = models.ForeignKey(Notice, on_delete=models.CASCADE)
     file_url = models.URLField()
-    file_type = models.CharField(max_length=50)
+    FILE_TYPE_CHOICES = [
+        ('image', 'Image'),
+        ('video', 'Video'),
+        ('document', 'Document'),
+    ]
+    file_type = models.CharField(max_length=50, choices=FILE_TYPE_CHOICES)
     uploaded_at = models.DateTimeField(default=timezone.now)
 
 
 class Notification(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     message = models.TextField()
-    is_read = models.BooleanField(default=False)
+    is_read = models.BooleanField(default=False, null=False)
     created_at = models.DateTimeField(default=timezone.now)
