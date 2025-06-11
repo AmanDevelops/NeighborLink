@@ -6,7 +6,6 @@ from django.utils import timezone
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     social_login = models.BooleanField(default=False)
-    google_id = models.CharField(max_length=50, null=True, blank=True)
     profile_url = models.URLField(null=True, blank=True)
 
 
