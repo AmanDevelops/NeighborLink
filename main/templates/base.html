@@ -14,11 +14,83 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
       rel="stylesheet"
     />
+
+    <style>
+      /* Background color classes */
+      .bg-50 {
+        background-color: #f4f6f7;
+      }
+      .bg-100 {
+        background-color: #e3e7ea;
+      }
+      .bg-200 {
+        background-color: #cbd3d6;
+      }
+      .bg-300 {
+        background-color: #a6b4ba;
+      }
+      .bg-400 {
+        background-color: #7a8c96;
+      }
+      .bg-500 {
+        background-color: #5f717b;
+      }
+      .bg-600 {
+        background-color: #515f69;
+      }
+      .bg-700 {
+        background-color: #465058;
+      }
+      .bg-800 {
+        background-color: #3e454c;
+      }
+      .bg-900 {
+        background-color: #373d42;
+      }
+      .bg-950 {
+        background-color: #212529;
+      }
+
+      /* Text color classes */
+      .text-50 {
+        color: #f4f6f7;
+      }
+      .text-100 {
+        color: #e3e7ea;
+      }
+      .text-200 {
+        color: #cbd3d6;
+      }
+      .text-300 {
+        color: #a6b4ba;
+      }
+      .text-400 {
+        color: #7a8c96;
+      }
+      .text-500 {
+        color: #5f717b;
+      }
+      .text-600 {
+        color: #515f69;
+      }
+      .text-700 {
+        color: #465058;
+      }
+      .text-800 {
+        color: #3e454c;
+      }
+      .text-900 {
+        color: #373d42;
+      }
+      .text-950 {
+        color: #212529;
+      }
+    </style>
   </head>
 
   <body class="d-flex flex-column h-100">
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+    <nav class="navbar navbar-expand-md navbar-dark bg-950 fixed-top">
       <div class="container-fluid">
         <a class="navbar-brand" href="">NeighborLink</a>
         <button
@@ -49,7 +121,13 @@
 
             <li class="nav-item">
               <a class="nav-link active" href="">
-                <i class="bi bi-person"></i> Profile
+                <img
+                  src="{{request.user.userprofile.profile_url}}"
+                  alt="Profile picture"
+                  class="rounded-circle img-fluid"
+                  style="max-width: 24px; height: auto"
+                />
+                Profile
               </a>
             </li>
 
@@ -75,6 +153,20 @@
 
     <!-- Main content -->
     <main class="flex-grow-1">
+      <!-- Category Bar -->
+      {% if categories %}
+      <div class="w-100 text-center py-3 bg-900 text-white mt-5 mb-3">
+        <div class="container">
+          <div class="row gx-4">
+            {% for category in categories %}
+            <div class="col">
+              <a href="/?filter={{category.id}}" class="text-50 text-decoration-none">{{category.name}}</a>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+      {% endif %}
       <div class="container pt-5 mt-4">{% block content %} {% endblock %}</div>
     </main>
 

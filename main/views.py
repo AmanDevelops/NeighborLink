@@ -7,10 +7,16 @@ from django.contrib.auth.models import User
 from django.http import HttpResponse
 from django.shortcuts import redirect, render
 
+from .models import *
+
 
 def home(request):
+    categories = Category.objects.all()
+
     return render(
-        request, "index.html", context={"client_id": settings.GOOGLE_CLIENT_ID}
+        request,
+        "index.html",
+        context={"client_id": settings.GOOGLE_CLIENT_ID, "categories": categories},
     )
 
 
