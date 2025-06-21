@@ -2,9 +2,8 @@ name: Pylint Check
 
 on:
   push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+    tags:
+      - "*"
 
 jobs:
   pylint-check:

@@ -47,7 +47,7 @@
    cd NeighborLink
    ```
 
-
+### Setup Backend
 
 2. **Set Up Environment Variables**
 
@@ -64,6 +64,7 @@
 4. **Create a Virtual Environment**
 
    ```bash
+   cd backend
    python -m venv venv
    source venv/bin/activate  # On Windows, use venv\Scripts\activate
    ```
