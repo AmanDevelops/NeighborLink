@@ -1,6 +1,5 @@
 ![lxyoghdvxwfhd4rvc75i](https://github.com/user-attachments/assets/135abac0-714a-4ec8-b64b-a44a3fd05799)
 
-
 ### Project Overview
 
 **Title:** Developing a Community Notice Board Website/App
@@ -27,14 +26,11 @@
 - **Backend:** Python with Django
 - **Database:** PostgreSQL
 
-
 ### Potential Impact
 
 - **Improved Communication:** Centralized platform for announcements.
 - **Enhanced Engagement:** Community members stay informed and participate more.
 - **Accessibility:** Notices reach more people instantly.
-
-
 
 ## Installation Steps
 
@@ -47,11 +43,15 @@
    cd NeighborLink
    ```
 
-
+### Setup Backend
 
 2. **Set Up Environment Variables**
 
    Create a `.env` file in the root directory and define necessary environment variables. Refer to the `.env.example` file for guidance.
+
+   ```bash
+   export $(grep -v '^#' .env | xargs)
+   ```
 
 3. **Build and Run with Docker Compose**
 
@@ -64,11 +64,10 @@
 4. **Create a Virtual Environment**
 
    ```bash
+   cd backend
    python -m venv venv
    source venv/bin/activate  # On Windows, use venv\Scripts\activate
    ```
-
-
 
 5. **Install Dependencies**
 
@@ -76,23 +75,17 @@
    pip install -r requirements.txt
    ```
 
-
-
 6. **Apply Migrations**
 
    ```bash
    python manage.py migrate
    ```
 
-
-
 7. **Run the Development Server**
 
    ```bash
    python manage.py runserver
    ```
-
-
 
 Access the application at `http://127.0.0.1:8000/`.
 

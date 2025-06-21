@@ -3,12 +3,6 @@ from django.db import models
 from django.utils import timezone
 
 
-class UserProfile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
-    social_login = models.BooleanField(default=False)
-    profile_url = models.URLField(null=True, blank=True)
-
-
 class Category(models.Model):
     name = models.CharField(max_length=50, unique=True)
     description = models.TextField()
