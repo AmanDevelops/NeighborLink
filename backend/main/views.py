@@ -20,3 +20,19 @@ class RegisterView(generics.CreateAPIView):
     queryset = User.objects.all()
     serializer_class = RegisterSerializer
     permission_classes = []
+
+
+class NoticeList(generics.ListCreateAPIView):
+    serializer_class = NoticeSerializer
+
+    def get_queryset(self):
+        queryset = Notice.objects.all()
+        category = self.request.query_params.get('filter', None)
+        if category is not None:
+            queryset = queryset.filter(category=category)
+        return queryset
+
+    def get_permissions(self):
+        if self.request.method == "POST":
+            return [IsAuthenticated()]
+        return [AllowAny()]
