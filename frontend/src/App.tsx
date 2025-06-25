@@ -2,9 +2,10 @@ import { CookiesProvider } from "react-cookie";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 import Navbar from "./components/Navbar";
-import Dashboard from "./pages/private/Dashboard";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
+import PostPage from "./pages/PostPage";
+import Dashboard from "./pages/private/Dashboard";
 import RequireAuth from "./utils/RequireAuth";
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
                   </RequireAuth>
                 }
               />
+              <Route path="/post" element={<PostPage />} />
             </Routes>
           </div>
         </div>

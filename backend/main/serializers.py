@@ -40,3 +40,20 @@ class NoticeSerializer(serializers.ModelSerializer):
             filter_param = request.query_params.get("filter")
             if filter_param:
                 self.context["category_id"] = filter_param
+
+
+class SingleNoticeSerializer(serializers.ModelSerializer):
+    category = serializers.StringRelatedField()
+    user = serializers.StringRelatedField()
+
+    class Meta:
+        model = Notice
+        fields = "__all__"
+
+    def __init__(self, *args, **kwargs):
+        super(SingleNoticeSerializer, self).__init__(*args, **kwargs)
+        request = self.context.get("request")
+        if request:
+            filter_param = request.query_params.get("id")
+            if filter_param:
+                self.context["id"] = filter_param
