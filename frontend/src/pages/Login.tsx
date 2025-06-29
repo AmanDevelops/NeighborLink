@@ -72,11 +72,6 @@ function Login() {
                 {error}
               </div>
             )}{" "}
-            {status === "loading" && (
-              <div className="d-flex justify-content-center">
-                <div className="spinner-grow" role="status"></div>
-              </div>
-            )}
             <form onSubmit={handleLogin}>
               <div className="mb-3">
                 <label htmlFor="username" className="form-label">
@@ -115,8 +110,23 @@ function Login() {
                 </label>
               </div>
               <div className="d-grid">
-                <button type="submit" className="btn btn-primary">
-                  Login Now
+                <button
+                  type="submit"
+                  className="btn btn-primary"
+                  disabled={status === "loading"}
+                >
+                  {status === "loading" ? (
+                    <>
+                      {" "}
+                      <span
+                        className="spinner-grow spinner-grow-sm"
+                        aria-hidden="true"
+                      ></span>{" "}
+                      <span role="status">Logging in...</span>
+                    </>
+                  ) : (
+                    <span>Login Now</span>
+                  )}
                 </button>
               </div>
             </form>

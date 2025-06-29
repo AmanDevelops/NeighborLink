@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
+import { useAuth } from "../utils/AuthContext";
 
 function Navbar() {
+  const { isAuthenticated, loading } = useAuth();
+
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
       <div className="container-fluid">
@@ -20,11 +23,13 @@ function Navbar() {
         </button>
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav ms-auto">
-            <li className="nav-item">
-              <Link to="login" className="nav-link">
-                <i className="bi bi-box-arrow-in-right"></i> Login
-              </Link>
-            </li>
+            {!isAuthenticated && (
+              <li className="nav-item">
+                <Link to="login" className="nav-link">
+                  <i className="bi bi-box-arrow-in-right"></i> Login
+                </Link>
+              </li>
+            )}
           </ul>
         </div>
       </div>

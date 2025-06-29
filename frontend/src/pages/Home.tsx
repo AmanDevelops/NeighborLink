@@ -19,11 +19,9 @@ function Home() {
 
   useEffect(() => {
     const fetchPosts = async () => {
-      // Get filter parameter from URL if it exists
       const urlParams = new URLSearchParams(location.search);
       const filterParam = urlParams.get("filter");
 
-      // Construct the URL with filter parameter if it exists
       const url = filterParam
         ? `${BACKEND_URL}posts?filter=${filterParam}`
         : `${BACKEND_URL}posts`;
